@@ -1,6 +1,4 @@
 import { Card as MuiCard, CardContent, CardActions, Button } from "@mui/material";
-import VideoBackground
-    from "../../../../../../../domain/modules/bootle/components/pages/BottlePage/VideoBackground.tsx";
 import Bottle from "../../../../../../../domain/modules/bootle/models/Bottle.model.ts";
 
 interface AbstractCardProps {
@@ -15,7 +13,6 @@ const AbstractCard = ({ handleEdit, handleDelete, id, bottle } : AbstractCardPro
 
     return (
         <div style={{position:"relative", overflow:"hidden"}}>
-            <VideoBackground />
             <div style={{position: "absolute",
                 top: "50%",
                 left: "50%",
