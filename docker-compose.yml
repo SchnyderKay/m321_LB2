@@ -12,7 +12,7 @@ services:
       - POSTGRES_DB=mydatabase
     volumes:
       - db_data:/var/lib/postgresql/data
-      - ./database/drinks_db.sql:/docker-entrypoint-initdb.d/drinks_db.sql  # Mount SQL file for initialization
+      - ./database/drink_db.sql:/docker-entrypoint-initdb.d/drinks_db.sql  # Mount SQL file for initialization
 
 volumes:
   db_data:
