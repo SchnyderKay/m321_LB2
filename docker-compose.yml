@@ -1,0 +1,12 @@
+version: "2.2"
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    ports:
+      - 8086:8086
+    environment:
+      - POSTGRES_USER=lebron
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=mydatabase
