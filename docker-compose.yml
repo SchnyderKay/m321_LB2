@@ -17,8 +17,8 @@ services:
   #  depends_on:
   #    - postgres
     environment:
-      - POSTGRES_URL=postgres
-      - POSTGRES_PORT=5432
+      - POSTGRES_URL=10.3.31.32
+      - POSTGRES_PORT=8086
 
   #postgres:
   #  image: postgres:15
