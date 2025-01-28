@@ -17,22 +17,6 @@ const createAPI = (): AxiosInstance => {
  */
 const api: AxiosInstance = createAPI();
 
-/**
- * Set the Authorization header on each request equal to the token which
- * is stored inside the localStorage if a user is authenticated.
- */
-api.interceptors.request.use(
-  (request) => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      request.headers.Authorization = token;
-    }
-    return request;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
-);
 
 /**
  * Log outgoing requests if the environment is in development-mode
