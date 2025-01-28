@@ -18,19 +18,6 @@ spec:
         kubernetes.io/hostname: m321-10-ap21a
       containers:
         - name: frontend
-          image: frontend:latest
+          image: lucatomasko/m321:frontend
           ports:
             - containerPort: 80
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: frontend-service
-spec:
-  selector:
-    app: frontend
-  ports:
-    - protocol: TCP
-      port: 8084
-      targetPort: 80
-  type: NodePort

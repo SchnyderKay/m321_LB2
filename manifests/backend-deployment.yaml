@@ -18,7 +18,7 @@ spec:
         kubernetes.io/hostname: m321-25-ap21a
       containers:
         - name: backend
-          image: backend:latest
+          image: lucatomasko/m321:backend
           ports:
             - containerPort: 8081
           env:
@@ -26,16 +26,3 @@ spec:
               value: "postgres-service"
             - name: POSTGRES_PORT
               value: "5432"
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: backend-service
-spec:
-  selector:
-    app: backend
-  ports:
-    - protocol: TCP
-      port: 8085
-      targetPort: 8081
-  type: NodePort
