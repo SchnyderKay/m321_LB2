@@ -29,13 +29,9 @@ spec:
           volumeMounts:
             - name: postgres-data
               mountPath: /var/lib/postgresql/data
-          nodeSelector:
-            kubernetes.io/hostname: "m321-25-ap21a"
-  volumeClaimTemplates:
-    - metadata:
-        name: postgres-data
-      spec:
-        accessModes: ["ReadWriteOnce"]
-        resources:
-          requests:
-            storage: 10Gi
+      volumes:
+        - name: postgres-data
+          persistentVolumeClaim:
+            claimName: postgres-data
+      nodeSelector:
+        kubernetes.io/hostname: "m321-25-ap21a"
