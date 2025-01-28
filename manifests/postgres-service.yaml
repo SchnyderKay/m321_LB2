@@ -10,3 +10,4 @@ spec:
       port: 8086
       targetPort: 5432
       nodePort: 30003  # Expose port 80 on the node via port 30003
+  type: NodePort
