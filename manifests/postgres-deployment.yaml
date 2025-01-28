@@ -1,11 +1,12 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: postgres
   labels:
     app: postgres
 spec:
-  replicas: 1
+  serviceName: "postgres-service"
+  replicas: 3  # Creates a PostgreSQL cluster with 1 primary and 2 replicas
   selector:
     matchLabels:
       app: postgres
@@ -26,5 +27,14 @@ spec:
               value: "postgres"
             - name: POSTGRES_DB
               value: "mydatabase"
-      nodeSelector:
-        kubernetes.io/hostname: "m321-25-ap21a"
+          volumeMounts:
+            - name: postgres-data
+              mountPath: /var/lib/postgresql/data
+  volumeClaimTemplates:
+    - metadata:
+        name: postgres-data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 10Gi
