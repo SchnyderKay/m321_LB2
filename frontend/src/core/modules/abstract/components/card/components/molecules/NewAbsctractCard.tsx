@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
+
 import { Button } from "@mui/material";
 import styles from "./AbstractCard.module.css"; 
 import Bottle from "../../../../../../../domain/modules/bootle/models/Bottle.model";
 import {  useNavigate } from "react-router-dom";
-import ImageService from "../../../../../../../domain/modules/bootle/services/ImageService";
 import AbstractCardTag from "../atoms/AbstractCardTag";
-import ActiveUserContext from "../../../../../user/contexts/ActiveUserContext";
+
 
 interface AbstractCardProps {
     handleEdit: (id: string) => void;
@@ -16,7 +15,7 @@ interface AbstractCardProps {
 
 const NewAbstractCard: React.FC<AbstractCardProps> = ({ handleEdit, handleDelete, id, bottle }) => {
     const navigate = useNavigate();
-    const {user} = useContext(ActiveUserContext);
+
 
     return (
         <div className={styles.wrapper}>
@@ -71,7 +70,7 @@ const NewAbstractCard: React.FC<AbstractCardProps> = ({ handleEdit, handleDelete
           
 
                 {
-                    user && <div className={styles.cardActions}>
+                   <div className={styles.cardActions}>
                         <Button
                             size="small"
                             color="primary"
